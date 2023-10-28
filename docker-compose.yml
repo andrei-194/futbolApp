@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  players_db:
+    container_name: ${PROJECT}_db
+    hostname: ${PROJECT}_db
+    image: mariadb:10.5.12-focal
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - bddata:/var/lib/mysql
+      - ./database/:/docker-entrypoint-initdb.d
+    networks:
+      - platform
+
+  django_api:
+    container_name: ${PROJECT}_backend
+    hostname: ${PROJECT}_backend
+    build: backend
+    volumes:
+      - ./backend:/code
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - players_db
+    networks:
+      - platform
+
+volumes:
+  bddata:
+
+networks:
+  platform:
+    name: platform

@@ -1,0 +1,17 @@
+{
+    "settings": {
+      "project": "server",
+      "env": "local",
+      "debug": true,
+      "allowed_hosts": [
+        "*"
+      ]
+    },
+   "mysql": {
+      "user": "drei",
+      "password": "root123",
+      "dbname": "players",
+      "host": "players_db",
+      "port": 3307
+    }
+  }
