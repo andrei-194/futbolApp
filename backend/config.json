@@ -13,5 +13,9 @@
       "dbname": "players",
       "host": "players_db",
       "port": 3307
+    },
+    "google": {
+      "client_id": "",
+      "secret": ""
     }
   }
