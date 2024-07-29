@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django,vs,pycharm,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,vs,pycharm,python
 
+# custom
+avatars/
+
 ### Django ###
 *.log
 *.pot
